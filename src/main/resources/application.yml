@@ -1,0 +1,25 @@
+spring:
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  datasource:
+    initialize: true
+    url:  jdbc:h2:mem:testdb;DB_CLOSE_DELAY=- 1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: sa
+    driver-class-name:  org.h2.Driver
+    #data: classpath:db/data.sql
+    schema: classpath:db/schema.sql
+  h2:
+    console:
+      enabled: true
+      path: /console
+
+server:
+  port: 80
+
+logging:
+  level: DEBUG
+debug: false
+
+
