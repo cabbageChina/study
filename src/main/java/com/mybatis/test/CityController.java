@@ -1,9 +1,11 @@
 package com.mybatis.test;
 
+import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -24,7 +26,9 @@ public class CityController {
         City city = new City();
         city.setName("小白");
         city.setCountry("中国");
-        city.setState("正常");
+        city.setState(StateEnum.NOMAL);
+        city.setCreateTime(LocalDateTime.now());
+        city.setNums(Lists.newArrayList(1, 2, 3, 4, 5));
         cityMapper.insert(city);
         return cityMapper.find();
     }
